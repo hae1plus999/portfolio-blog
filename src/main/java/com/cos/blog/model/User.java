@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,6 +13,15 @@ import javax.persistence.Id;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 public class User {
 
@@ -27,8 +38,9 @@ public class User {
 	@Column(nullable = false, length = 50)
 	private String email;
 	
-	@ColumnDefault("'USER'")
-	private String role;
+//	@ColumnDefault("'USER'")
+	@Enumerated(EnumType.STRING)
+	private RoleType role;
 	
 	@CreationTimestamp
 	private Timestamp createDate;
