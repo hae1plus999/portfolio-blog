@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
  <%@ include file="../layout/header.jsp" %>
 
-<div class="container m-2">
+<div class="container p-2">
 	<form>
 		<div class="form-group">
 			<label for="username">이름</label> <input type="text" class="form-control"  id="username">
